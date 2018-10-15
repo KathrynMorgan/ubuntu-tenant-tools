@@ -1,0 +1,235 @@
+    1  cd
+    2  clear
+    3  chsh -h
+    4  chsh -s /bin/zsh
+    5  exit
+    6  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    7  chsh -s $(which zsh)
+    8  sudo apt-cache search zsh | grep auto
+    9  clear
+   10  sudo apt-get install fonts-powerline
+   11  clear
+   12  cd
+   13  clear
+   14  cd .oh-my-zsh
+   15  ls
+   16  cd themes
+   17  ls
+   18  clear
+   19  ll
+   20  clear
+   21  ls
+   22  vim .
+   23  clear
+   24  zsh
+   25  clear
+   26  cd
+   27  clear
+   28  tmux
+   29  clear
+   30  exit
+   31  clear
+   32  apt install vim-powerline 
+   33  sudo apt install vim-powerline 
+   34  clear
+   35  vim .tmux.conf
+   36  apt-cache search iterm2
+   37  apt-cache search iterm
+   38  pip install pylint
+   39  clear; pip install coverage
+   40  clear
+   41  sudo pip install coverage
+   42  clear
+   43  sudo pip install pylint
+   44  clear
+   45  pip install virtualenvwrapper
+   46  clear
+   47  apt install ctags
+   48  sudo apt install ctags
+   49  sudo apt install ag
+   50  sudo apt install ack
+   51  sudo apt install ranger
+   52  sudo apt install tig
+   53  sudo apt install luajit
+   54  sudo apt install lua
+   55  sudo apt install lua50
+   56  clear
+   57  apt-cache search vim | grep lua
+   58  apt install lua-nvim
+   59  sudo apt install lua-nvim
+   60  apt install neovim
+   61  sudo apt install neovim
+   62  vim
+   63  apt purge vim
+   64  sudo apt purge vim
+   65  dpkg --reconfigure neovim
+   66  dpkg-reconfigure neovim
+   67  sudo dpkg-reconfigure neovim
+   68  clear
+   69  vim
+   70  clear
+   71  apt-cache search ag
+   72  apt-cache search ^ag
+   73  clear
+   74  apt-cache search ^ag
+   75  apt install agrep
+   76  sudo apt install agrep
+   77  clear
+   78  apt-cache search silversearcher
+   79  apt install silversearcher-ag
+   80  sudo apt install silversearcher-ag
+   81  clear
+   82  ag
+   83  clear
+   84  curl -L https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+   85  vim .vimrc
+   86  clear
+   87  cd .oh-my-vim
+   88  ls
+   89  cd
+   90  clear
+   91  ll
+   92  ls -lah
+   93  rm -rf .vim*
+   94  curl -L https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+   95  rm -rf .vim*
+   96  rm -rf .oh-my-vim
+   97  curl -L https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+   98  vim .vimrc
+   99  reboot
+  100  tmux
+  101  vim .tmux.conf.local
+  102  apt-cache search vim
+  103  apt-cache search vim | grep lua
+  104  clear
+  105  sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/tools/install.sh)"
+  106  clear
+  107  vim .vim/sessions/default.vim
+  108  clear
+  109  echo "\ncolorscheme monokai" >> ~/.config/nvim/custom.init.vim
+  110  vim .vim/sessions/default.vim
+  111  clear
+  112  cd Git
+  113  ls
+  114  clear
+  115  cd
+  116  cd .config/nvim
+  117  ls
+  118  vim custom.init.vim
+  119  cd ~
+  120  cd Downloads
+  121  git clone git://github.com/pricco/gnome-terminal-colors-monokai.git
+  122  cd gnome-terminal-colors-monokai
+  123  ./install.sh
+  124  sudo apt install gconftool-2
+  125  apt-cache search gconf
+  126  apt-cache search gconf | grep tool
+  127  apt install gconf2
+  128  sudo apt install gconf2
+  129  sudo apt install gconf2 --install-recommends
+  130  clear
+  131  apt install dconf-cli
+  132  sudo apt install dconf-cli
+  133  apt remove vim-runtime
+  134  sudo apt remove vim-runtime
+  135  clear
+  136  ./install.sh
+  137  clear
+  138  ./install.sh
+  139  vim install.sh
+  140  cd ~/Downloads
+  141  cd gnome-terminal-colors-monokai
+  142  clear
+  143  ./install.sh
+  144  exit
+  145  echo clear
+  146  clear
+  147  cd ~/Downloads
+  148  wget -O xt http://git.io/v3DBO && chmod +x xt && ./xt && rm xt
+  149  wget -O xt https://raw.githubusercontent.com/Mayccoll/Gogh/master/themes/monokai-dark.sh && chmod +x xt && ./xt && rm xt
+  150  clear
+  151  cd
+  152  clear
+  153  ls
+  154  vim install.sh
+  155  uninstall_oh_my_neovim
+  156  cd
+  157  clear
+  158  uninstall_oh_my_neovim
+  159  clear
+  160  apt-cache purge neovim
+  161  sudo apt purge neovim
+  162  clear
+  163  curl -L https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+  164  rm -rf /home/katmao/.oh-my-vim
+  165  curl -L https://raw.github.com/liangxianzhe/oh-my-vim/master/tools/install.sh | sh
+  166  clear
+  167  vim .vimrc
+  168  clear
+  169  vim .vimrc
+  170  apt-get install vim*
+  171  apt-cache search ^vim*
+  172  apt-cache search vim*
+  173  apt-cache search vim
+  174  clear
+  175  exit
+  176  cd
+  177  clear
+  178  cd
+  179  clear
+  180  apt-cache search vim | more
+  181  sudo apt-get install vim vim-runtime fim vim-airline vim-airline-themes vim-gocomplete  vim-ctrlp vim-haproxy vim-lastplace vim-python-jedi vim-syntastic vim-syntax-docker vim-tabular vim-youcompleteme --install-recommends -y
+  182  clear
+  183  vim .vimrc
+  184  clear
+  185  vim .vimrc
+  186  clear
+  187  vim .vimrc
+  188  apt-cahce search vim-powerline
+  189  apt-cache search airline
+  190  dpkg -l | airline
+  191  dpkg -l | grep airline
+  192  apt remove vim-airline vim-airline-themes
+  193  sudo apt remove vim-airline vim-airline-themes
+  194  clear
+  195  vim .vimrc
+  196  clear
+  197  exit
+  198  vim /home/katmao/.zshrc
+  199  clear
+  200  exit
+  201  tmux
+  202  vim .tmux.conf.local
+  203  exit
+  204  tmux
+  205  clear
+  206  vim .tmux.conf.local
+  207  clear
+  208  cd Git
+  209  ls
+  210  clear
+  211  git clone https://github.com/KathrynMorgan/mini-stack.git
+  212  clear
+  213  ls
+  214  cp mini-stack mini-stack-wifi
+  215  cp mini-stack mini-stack-wifi -r
+  216  clear
+  217  rm mini-stack-wifi/.git -rf
+  218  clear
+  219  rm mini-stack
+  220  rm mini-stack -rf
+  221  clear
+  222  cd mini-stack-wifi
+  223  clear
+  224  ll
+  225* exit
+for fingerprint in D5495F657635B97 351397BC53640DB55 12B709720F164EEB; do
+    curl "http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x$fingerprint" | \
+    awk '/-----BEGIN PGP/{p=1} /-----END PGP/{print; p=0} p==1{print}' \
+    > key.txt;   
+    sudo apt-key add key.txt; 
+done
+
+apt update
+apt upgrade -y
+apt purge perl-modules-5.22 lvm2 mdadm
