@@ -1,0 +1,105 @@
+#!/bin/bash -x
+# Example SELinux Install Notes & Process
+# Instal and configure SELinux on an Ubuntu Server with required workarounds
+#
+# This is provided as educational lab material only and 
+# should not be used in production without extensive testing
+#
+# !README! Purge the below packages and reboot before running!!!
+#    apt-get purge -y apparmor selinux selinux-basics selinux-policy-default auditd
+#
+# WARNING!
+#    Ubuntu Universe package "selinux" is un-maintained and has a bug 
+#    since Karmic which will render a system un-bootable
+#    As a workaround, the current Debian SELinux packages may be used.
+#
+# Refrences:
+#    https://wiki.ubuntu.com/SELinux
+#    https://wiki.debian.org/SELinux/Setup
+#
+#
+################################################################################
+# Install Packages
+apt-get install -y selinux-basics selinux-policy-default auditd
+ 
+
+################################################################################
+## Create file _load_selinux_policy
+cat <<EOFEOF >/usr/share/initramfs-tools/scripts/init-bottom/_load_selinux_policy
+#! /bin/sh
+set -e
+
+PREREQ="framebuffer console_setup"
+
+prereqs () {
+        echo "$PREREQ"
+}
+
+case $1 in
+        prereqs)
+                prereqs
+                exit 0
+                ;;
+esac
+
+. /scripts/functions
+
+# Mount the selinux directory in both the ramdisk's root as well as in
+# the real root directory.
+#mkdir -p /selinux
+mkdir -p ${rootmnt}/selinux
+
+# Temporarily pivot to the real root directory, loading the policy
+# from that disk.  Normally this process will occur by init, but kinit
+# is not compiled against libselinux.  Therefore use load_policy to
+# perform the same initialization.
+set +e
+chroot ${rootmnt} /sbin/load_policy -i
+RET=$?
+
+if [ $RET -eq 3 ]; then
+    panic "SELinux policy load failed and enforcing mode requested, halting now"
+    kill -INT 1
+elif [ $RET -ne 0 ]; then
+    log_warning_msg "SELinux policy load failed, continuing"
+else
+    log_success_msg "SELinux policy was loaded"
+fi
+
+# This is unnecessary and confuses the selinux-basic init script
+#mount -t selinuxfs none /selinux || \
+#    log_warning_msg "Unable to mount /selinux"
+
+exit 0
+EOFEOF
+
+
+################################################################################
+# Enable _load_selinux_policy execution bit
+chmod +x /usr/share/initramfs-tools/scripts/init-bottom/_load_selinux_policy
+
+
+################################################################################
+# Activate selinux to prepare GRUB & PAM modules
+selinux-activate 
+[[ $? == "0" ]] || exit
+
+
+################################################################################
+# Enable "FSCKFIX" to auto-fsck filesystem on boot failure
+sed -i 's/^#FSCKFIX=no/FSCKFIX=yes/' /etc/default/rcS
+
+
+################################################################################
+# Update Grub (safety precaution)
+update-grub
+
+
+################################################################################
+# Print Error & Warning messages
+check-selinux-installation 
+
+
+################################################################################
+# Complete Message:
+echo "SELinux should be configured in 'Permissive' mode on this system, run 'shutdown -r now' to reboot & test"
