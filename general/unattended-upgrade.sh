@@ -28,4 +28,4 @@ sudo apt-get --option=Dpkg::Options::=--force-confold \
 
 ################################################################################
 # Upgrade to new release
-sudo do-release-upgrade -q -d -f DistUpgradeViewNonInteractive
+sudo do-release-upgrade --quiet --frontend=DistUpgradeViewNonInteractive
