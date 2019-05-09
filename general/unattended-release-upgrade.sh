@@ -44,7 +44,7 @@ export DEBIAN_FRONTEND=noninteractive
 sudo sed -i 's/Prompt=lts/Prompt=normal/g' /etc/update-manager/release-upgrades
 sudo sed -i 's/# conf_force_conffold=YES/conf_force_conffold=YES/g' /etc/ucf.conf 
 sudo apt-get --option=Dpkg::Options::=--force-confold --option=DPKG::options::=--force-unsafe-io --assume-yes --quiet dist-upgrade
-sudo apt-get --option=Dpkg::Options::=--force-confold --option=DPKG::options::=--force-unsafe-io --assume-yes --quiet full-upgrade
+sudo apt-get --option=Dpkg::Options::=--force-confold --option=DPKG::options::=--force-unsafe-io --quiet full-upgrade
 sudo apt-get --option=Dpkg::Options::=--force-confold --option=DPKG::options::=--force-unsafe-io --assume-yes --quiet autoremove
 sudo shutdown -r now
 sudo do-release-upgrade -f DistUpgradeViewNonInteractive
