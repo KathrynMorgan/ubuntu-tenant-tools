@@ -47,4 +47,4 @@ sudo apt-get --option=Dpkg::Options::=--force-confold --option=DPKG::options::=-
 sudo apt-get --option=Dpkg::Options::=--force-confold --option=DPKG::options::=--force-unsafe-io --assume-yes --quiet full-upgrade
 sudo apt-get --option=Dpkg::Options::=--force-confold --option=DPKG::options::=--force-unsafe-io --assume-yes --quiet autoremove
 sudo shutdown -r now
-sudo do-release-upgrade
+sudo do-release-upgrade -f DistUpgradeViewNonInteractive
