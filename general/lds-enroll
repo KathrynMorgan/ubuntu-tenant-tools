@@ -1,0 +1,35 @@
+#!/bin/bash -x
+
+apt_install () {
+apt-get install -y landscape-client
+}
+
+cert_install () {
+cat <<EOF >/etc/landscape/lds-pub.pem
+-----BEGIN CERTIFICATE-----
+MIIB6DCCAVGgAwIBAgIJANTMxgLuvDxXMA0GCSqGSIb3DQEBCwUAMB4xHDAaBgNV
+BAMME2xkcy5taW5pLXN0YWNrLm1hYXMwHhcNMTkwNjA3MTY1NDI3WhcNMjkwNjA0
+MTY1NDI3WjAeMRwwGgYDVQQDDBNsZHMubWluaS1zdGFjay5tYWFzMIGfMA0GCSqG
+SIb3DQEBAQUAA4GNADCBiQKBgQCdf2Fqi64WGEij/NbucPkpxypQoWmqnz/RUAoW
+o9tNPoVLk0H8o8Bne8m7tZX9JBFQXXy4WQrgVCoATwcXQklb+9MQufaRGs8wt/n2
+bM9lCxO/7pnbecakGZYYQ0aR3eJ66GYHY0JUeDo5ht0rLXkT48/036RG2uX1b+FK
+L5KcVQIDAQABoy4wLDAqBgNVHREEIzAhghNsZHMubWluaS1zdGFjay5tYWFzggox
+MC4xMC4wLjEyMA0GCSqGSIb3DQEBCwUAA4GBAGhaJ5LX1lAwaRn+/pyXv+EGu5u6
+msy86IVoBiCKdc9AcpFfEG9IO+4HvvCXwh8OuUmlkfQsW+9icK21js1zOQrxV7Lk
+TE5OCga8b/msgeMKqQAW6lGGL1vgHUEbNBKwQs7f/tS5gUhfqK6+BRX1PrfYXVta
+TMF+1g8Q5f7YOVyB
+-----END CERTIFICATE-----
+EOF
+}
+
+run_enroll () {
+sudo landscape-config \
+    --computer-title ${HOSTNAME} \
+    --account-name standalone \
+    -p admin-auto-register \
+    --url https://lds.mini-stack.maas/message-system \
+    --ping-url http://lds.mini-stack.maas/ping \
+    --ssl-public-key /etc/landscape/lds-pub.pem \
+    --log-level debug \
+    --silent
+}
